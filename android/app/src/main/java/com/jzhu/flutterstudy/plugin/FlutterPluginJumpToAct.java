@@ -2,8 +2,10 @@ package com.jzhu.flutterstudy.plugin;
 
 import android.app.Activity;
 import android.content.Intent;
+
 import com.jzhu.flutterstudy.OneActivity;
 import com.jzhu.flutterstudy.TwoActivity;
+
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
@@ -55,8 +57,7 @@ public class FlutterPluginJumpToAct implements MethodChannel.MethodCallHandler {
 
             //返回给flutter的参数
             result.success("success");
-        }
-        else {
+        } else {
             result.notImplemented();
         }
     }
