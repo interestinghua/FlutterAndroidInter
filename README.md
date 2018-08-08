@@ -1,15 +1,4 @@
-# flutter_study
-
-感谢 http://gank.io 提供的api帮助完成这个demo
-该项目完全开源，单纯为了学习与交流，希望大家喜欢，多多提意见。
-后续会将未来学到的新知识点用到该项目，持续更新
-
-
-<img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/1.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/13.jpeg" width="200">
-<img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/18.jpeg" width="200">
-<img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/3.jpeg" width="200"> <img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/4.png" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/5.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/6.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/8.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/9.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/10.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/11.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/12.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/14.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/15.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/16.jpeg" width="200">
-<img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/17.jpeg" width="200">
-<img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/19.jpeg" width="200"><img src="https://github.com/zhujian1989/flutter_study/blob/master/screenshot/20.png" width="200">
+# FlutterAndroidInter
 
 ## 知识点(每一个都有一个独立的例子)
 1.基础布局  
