@@ -12,7 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a523a76-0bfc-4dca-82ae-75304c3ab0c3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/MainActivity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/OneActivity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/TwoActivity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginAMap.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginCounter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginJumpToAct.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginPermissions.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -60,7 +69,7 @@
         </entry>
       </file>
       <file leaf-file-name="FlutterPluginAMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginAMap.java">
+        <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/plugin/FlutterPluginAMap.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="163">
               <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
@@ -71,21 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="163">
+              <caret line="37" column="45" lean-forward="true" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -146,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/widget/demo_advance/hide_and_show_page.dart" />
         <option value="$PROJECT_DIR$/lib/widget/drawer_page.dart" />
         <option value="$PROJECT_DIR$/lib/widget/demo_lifecycle/lifecycle_page.dart" />
         <option value="$PROJECT_DIR$/lib/widget/demo_custom_toast/show_notification.dart" />
@@ -197,6 +195,7 @@
         <option value="$PROJECT_DIR$/lib/mvp/repository/fl_repository_imlp.dart" />
         <option value="$PROJECT_DIR$/lib/widget/demo_network/network_page.dart" />
         <option value="$PROJECT_DIR$/lib/model/search_model.dart" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -244,6 +243,74 @@
             <path>
               <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
               <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mars" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Flutter_study02" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mars" type="462c0819:PsiDirectoryNode" />
+              <item name="flutterstudy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Flutter_study02" type="b2602c69:ProjectViewProjectNode" />
@@ -466,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533699658447</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <created>1533699842599</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533699842599</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -497,7 +571,7 @@
       <window_info id="Dart Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30990416" sideWeight="0.4877529" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36421725" sideWeight="0.48569384" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19808307" sideWeight="0.48615548" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22151224" sideWeight="0.48615548" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Flutter Outline" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2918455" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28541002" sideWeight="0.49713877" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -720,14 +794,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/OneActivity.java">
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/OneActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/TwoActivity.java">
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/TwoActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
@@ -787,7 +861,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
@@ -801,7 +875,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginPermissions.java">
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/plugin/FlutterPluginPermissions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
@@ -816,7 +890,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginJumpToAct.java">
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/plugin/FlutterPluginJumpToAct.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="12" column="58" lean-forward="true" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
@@ -837,7 +911,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginCounter.java">
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/plugin/FlutterPluginCounter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="33" column="89" lean-forward="true" selection-start-line="33" selection-start-column="89" selection-end-line="33" selection-end-column="89" />
@@ -927,7 +1001,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/jzhu/flutterstudy/plugin/FlutterPluginAMap.java">
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/mars/flutterstudy/plugin/FlutterPluginAMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
@@ -937,18 +1011,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="38" column="44" lean-forward="true" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="37" column="45" lean-forward="true" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
           <folding />
         </state>
       </provider>

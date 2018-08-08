@@ -1,4 +1,4 @@
-package com.jzhu.flutterstudy.plugin;
+package com.mars.flutterstudy.plugin;
 
 import android.app.Activity;
 import android.util.Log;

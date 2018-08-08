@@ -1,10 +1,10 @@
-package com.jzhu.flutterstudy;
+package com.mars.flutterstudy;
 
 import android.os.Bundle;
-import com.jzhu.flutterstudy.plugin.FlutterPluginAMap;
-import com.jzhu.flutterstudy.plugin.FlutterPluginCounter;
-import com.jzhu.flutterstudy.plugin.FlutterPluginJumpToAct;
-import com.jzhu.flutterstudy.plugin.FlutterPluginPermissions;
+import com.mars.flutterstudy.plugin.FlutterPluginAMap;
+import com.mars.flutterstudy.plugin.FlutterPluginCounter;
+import com.mars.flutterstudy.plugin.FlutterPluginJumpToAct;
+import com.mars.flutterstudy.plugin.FlutterPluginPermissions;
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugins.GeneratedPluginRegistrant;

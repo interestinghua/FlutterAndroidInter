@@ -1,10 +1,10 @@
-package com.jzhu.flutterstudy.plugin;
+package com.mars.flutterstudy.plugin;
 
 import android.app.Activity;
 import android.content.Intent;
 
-import com.jzhu.flutterstudy.OneActivity;
-import com.jzhu.flutterstudy.TwoActivity;
+import com.mars.flutterstudy.OneActivity;
+import com.mars.flutterstudy.TwoActivity;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;

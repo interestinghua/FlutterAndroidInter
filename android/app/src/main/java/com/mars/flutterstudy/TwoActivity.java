@@ -1,4 +1,4 @@
-package com.jzhu.flutterstudy;
+package com.mars.flutterstudy;
 
 import android.app.Activity;
 import android.os.Bundle;
