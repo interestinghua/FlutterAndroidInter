@@ -3,7 +3,7 @@ package com.mars.flutterstudy;
 import android.os.Bundle;
 import com.mars.flutterstudy.plugin.FlutterPluginAMap;
 import com.mars.flutterstudy.plugin.FlutterPluginCounter;
-import com.mars.flutterstudy.plugin.FlutterPluginJumpToAct;
+import com.mars.flutterstudy.plugin.FlutterPluginJumpToNative;
 import com.mars.flutterstudy.plugin.FlutterPluginPermissions;
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.PluginRegistry;
@@ -20,12 +20,9 @@ public class MainActivity extends FlutterActivity {
 
     private static void registerCustomPlugin(PluginRegistry registrar) {
 
-        FlutterPluginJumpToAct.registerWith(registrar.registrarFor(FlutterPluginJumpToAct.CHANNEL));
-
+        FlutterPluginJumpToNative.registerWith(registrar.registrarFor(FlutterPluginJumpToNative.CHANNEL));
         FlutterPluginCounter.registerWith(registrar.registrarFor(FlutterPluginCounter.CHANNEL));
-
         FlutterPluginPermissions.registerWith(registrar.registrarFor(FlutterPluginPermissions.CHANNEL));
-
         FlutterPluginAMap.registerWith(registrar.registrarFor(FlutterPluginAMap.EVENT_CHANNEL));
 
     }

@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+
 import com.tbruyelle.rxpermissions2.RxPermissions;
+
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
@@ -19,13 +21,9 @@ import java.util.List;
 public class FlutterPluginPermissions implements MethodChannel.MethodCallHandler {
 
     public static String CHANNEL = "com.jzhu.permisstions/plugin";
-
     static MethodChannel channel;
-
     private Activity activity;
-
     private HashMap<String, String> permissionsMap = new HashMap<>();
-
     private RxPermissions rxPermissions;
 
     private FlutterPluginPermissions(Activity activity) {
@@ -43,58 +41,56 @@ public class FlutterPluginPermissions implements MethodChannel.MethodCallHandler
     @Override
     public void onMethodCall(MethodCall call, final MethodChannel.Result result) {
 
-        if (call.method.equals("askPermissions")) {
+        switch (call.method) {
+            case "askPermissions":
+                //如果小于6。0的不需要判断权限
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                    result.success(true);
+                    return;
+                }
 
+                List<String> list = (List<String>) call.arguments;
 
-            //如果小于6。0的不需要判断权限
-            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
-                result.success(true);
-                return;
-            }
+                List<String> permissionslist = new ArrayList<>();
 
+                for (String per : list) {
+                    permissionslist.add(permissionsMap.get(per));
+                }
 
-            List<String> list = (List<String>) call.arguments;
+                String[] permissions = new String[list.size()];
 
-            List<String> permissionslist = new ArrayList<>();
+                permissionslist.toArray(permissions);
 
-            for (String per : list) {
-                permissionslist.add(permissionsMap.get(per));
-            }
+                rxPermissions
+                        .request(permissions)
+                        .subscribe(new Consumer<Boolean>() {
+                            @Override
+                            public void accept(Boolean aBoolean) throws Exception {
+                                result.success(aBoolean);
+                            }
+                        });
 
-            String[] permissions = new String[list.size()];
-
-            permissionslist.toArray(permissions);
-
-            rxPermissions
-                    .request(permissions)
-                    .subscribe(new Consumer<Boolean>() {
-                        @Override
-                        public void accept(Boolean aBoolean) throws Exception {
-                            result.success(aBoolean);
-                        }
-                    });
-
-        }else if(call.method.equals("openSetting")){
-            openSettings();
-        }
-        else {
-            result.notImplemented();
+                break;
+            case "openSetting":
+                openSettings();
+                break;
+            default:
+                result.notImplemented();
+                break;
         }
     }
 
     private void openSettings() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                   Uri.parse("package:" + activity.getPackageName()));
+                Uri.parse("package:" + activity.getPackageName()));
         intent.addCategory(Intent.CATEGORY_DEFAULT);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
     }
 
-
     /**
      * 权限
      */
-
     private void initPermissions() {
         permissionsMap.put("ACCESS_COARSE_LOCATION", Manifest.permission.ACCESS_COARSE_LOCATION);
         permissionsMap.put("ACCESS_FINE_LOCATION", Manifest.permission.ACCESS_FINE_LOCATION);

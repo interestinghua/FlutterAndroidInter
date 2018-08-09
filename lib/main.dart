@@ -51,7 +51,8 @@ void main() {
     '/LifecyclePage': (BuildContext context) => new LifecyclePage(),
     '/NetworkPage': (BuildContext context) => new NetworkPage(),
     '/AdvancedPage': (BuildContext context) => new AdvancedPage(),
-    '/InheritedWidgetTestPage': (BuildContext context) => new InheritedWidgetTestContainer(),
+    '/InheritedWidgetTestPage': (BuildContext context) =>
+        new InheritedWidgetTestContainer(),
     '/GlobalKeyFromPage': (BuildContext context) => new GlobalKeyFromPage(),
     '/NotificationPage': (BuildContext context) => new NotificationPage(),
     '/HideAndShowPage': (BuildContext context) => new HideAndShowPage(),

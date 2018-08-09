@@ -22,20 +22,18 @@ class SearchModel {
 
 class SearchApi {
   final Dio _dio = DioFactory.getInstance().getDio();
-
   static const String _url =
       "http://gank.io/api/search/query/listview/category/{type}/count/10/page/1";
 
   Future<BaseModel<List<SearchModel>>> getSearchResult(String type) async {
-
-
-    if(type.isEmpty){
+    if (type.isEmpty) {
       return null;
     }
 
     Response response = await _dio.get(_url.replaceFirst('{type}', type));
 
-    BaseModel<List<SearchModel>> model = new BaseModel(error: true, results: null);
+    BaseModel<List<SearchModel>> model =
+        new BaseModel(error: true, results: null);
 
     List<SearchModel> list;
 
@@ -53,5 +51,4 @@ class SearchApi {
     print(model.results.length);
     return model;
   }
-
 }

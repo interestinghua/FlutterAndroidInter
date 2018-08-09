@@ -1,13 +1,8 @@
 class HotNewsModel {
-
   final String date;
-
   final List stories;
-
   final List top_stories;
-
   const HotNewsModel({this.date, this.stories, this.top_stories});
-
 }
 
 class HotNewsStoriesModel {

@@ -138,14 +138,10 @@ class _HandleSPDataWidgetState extends State<HandleSPDataWidget> {
           padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
           child: new Text('shared_preferences用法'),
         ),
-
         new Row(
           children: <Widget>[
             new RaisedButton(
-                textColor: Colors.black,
-                child: new Text('增'),
-                onPressed: _add
-            ),
+                textColor: Colors.black, child: new Text('增'), onPressed: _add),
             new RaisedButton(
                 textColor: Colors.black,
                 child: new Text('删'),
@@ -158,7 +154,8 @@ class _HandleSPDataWidgetState extends State<HandleSPDataWidget> {
                 textColor: Colors.black,
                 child: new Text('查'),
                 onPressed: _query),
-          ],),
+          ],
+        ),
         new Padding(
           padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
           child: new Text('结果：$_result'),
@@ -220,8 +217,6 @@ class _HandleSQLiteDataWidgetState extends State<HandleSQLiteDataWidget> {
   }
 
   _add() async {
-
-
     Database db = await openDatabase(dbPath);
 
     String sql =
@@ -350,7 +345,6 @@ class _HandleFileDataWidgetState extends State<HandleFileDataWidget> {
   var _result;
 
   _add() async {
-
     File file = new File('$tempPath/user.txt');
     await file.writeAsString('用户名:$username\n密码:$pwd');
     setState(() {

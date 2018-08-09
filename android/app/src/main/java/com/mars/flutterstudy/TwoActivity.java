@@ -7,7 +7,6 @@ import android.widget.TextView;
 public class TwoActivity extends Activity {
 
     private TextView mTextView;
-
     public static final String VALUE = "value";
 
     @Override
@@ -15,11 +14,8 @@ public class TwoActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_two);
-
         mTextView = findViewById(R.id.text);
-
         String text = getIntent().getStringExtra(VALUE);
-
         mTextView.setText(text);
 
     }

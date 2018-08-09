@@ -45,7 +45,7 @@ class _DismissedAppPageState extends State<DismissedAppPage> {
             return new Dismissible(
                 key: new Key(curItem),
                 direction: DismissDirection.endToStart,
-                onDismissed: (direction) {
+                onDismissed: (direction){
                   list.removeAt(index);
                   _showSnakeBar("$curItem 被划走了");
                 },

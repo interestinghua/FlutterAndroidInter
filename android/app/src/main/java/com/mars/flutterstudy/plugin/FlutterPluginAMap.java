@@ -2,10 +2,12 @@ package com.mars.flutterstudy.plugin;
 
 import android.app.Activity;
 import android.util.Log;
+
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+
 import io.flutter.plugin.common.EventChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
@@ -14,21 +16,14 @@ import java.util.HashMap;
 public class FlutterPluginAMap implements EventChannel.StreamHandler {
 
     public static String EVENT_CHANNEL = "com.jzhu.amap.loc/plugin";
-
     public static String METHOD_CHANNEL = "com.jzhu.amap.fun/plugin";
 
     private static EventChannel mEventChannel;
-
     private Activity mActivity;
-
     private AMapLocationClient mlocationClient;
-
     private AMapLocationClientOption mLocationOption = null;
-
     private EventChannel.EventSink mEventSink;
-
     private HashMap<String, Object> mLocation = new HashMap<>();
-
     private static FlutterPluginAMap instance;
 
     private FlutterPluginAMap(Activity activity) {
@@ -47,7 +42,6 @@ public class FlutterPluginAMap implements EventChannel.StreamHandler {
 
     }
 
-
     private void initAMap() {
         mlocationClient = new AMapLocationClient(mActivity);
         mLocationOption = new AMapLocationClientOption();
@@ -56,6 +50,7 @@ public class FlutterPluginAMap implements EventChannel.StreamHandler {
             public void onLocationChanged(AMapLocation aMapLocation) {
                 if (aMapLocation != null) {
                     if (aMapLocation.getErrorCode() == 0) {
+
                         //定位成功回调信息，设置相关消息
 //                        aMapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见定位类型表
 //                        aMapLocation.getLatitude();//获取纬度
@@ -74,12 +69,11 @@ public class FlutterPluginAMap implements EventChannel.StreamHandler {
                         if (null != mEventSink) {
                             mEventSink.success(mLocation);
                         }
-                    }
-                    else {
+                    } else {
                         //显示错误信息ErrCode是错误码，errInfo是错误信息，详见错误码表。
                         Log.e("zj", "location Error, ErrCode:"
-                                    + aMapLocation.getErrorCode() + ", errInfo:"
-                                    + aMapLocation.getErrorInfo());
+                                + aMapLocation.getErrorCode() + ", errInfo:"
+                                + aMapLocation.getErrorInfo());
                     }
                 }
             }
@@ -93,9 +87,7 @@ public class FlutterPluginAMap implements EventChannel.StreamHandler {
 
     @Override
     public void onListen(Object o, final EventChannel.EventSink eventSink) {
-
         mEventSink = eventSink;
-
     }
 
     @Override

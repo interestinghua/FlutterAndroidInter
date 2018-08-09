@@ -3,8 +3,8 @@ import 'package:flutter_study/mvp/repository/fl_repository_imlp.dart';
 import 'package:flutter_study/mvp/repository/fl_repository.dart';
 
 class FLPresenterImpl implements FLPresenter {
-  FLView _view;
 
+  FLView _view;
   FLRepository _repository;
 
   FLPresenterImpl(this._view) {

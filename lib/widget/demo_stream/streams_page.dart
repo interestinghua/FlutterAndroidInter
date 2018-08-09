@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_study/common/widget/progreess_dialog.dart';
 import 'package:flutter_study/model/base_model.dart';
@@ -13,10 +12,9 @@ class StreamPage extends StatefulWidget {
 }
 
 class _StreamPageState extends State<StreamPage> {
+
   List<SearchModel> _list = [];
-
   StreamController<List<SearchModel>> _streamController;
-
   SearchApi _api = new SearchApi();
 
   _initStreamController() {
@@ -28,9 +26,14 @@ class _StreamPageState extends State<StreamPage> {
   }
 
   _loadData() async {
-    _api.getSearchResult('all').asStream().map((value) => (!value
-        .error && null != value.results && value.results.length > 0) ? value
-        .results : null).pipe(_streamController);
+    _api
+        .getSearchResult('all')
+        .asStream()
+        .map((value) =>
+            (!value.error && null != value.results && value.results.length > 0)
+                ? value.results
+                : null)
+        .pipe(_streamController);
   }
 
   @override

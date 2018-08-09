@@ -13,9 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class FlutterPluginCounter implements EventChannel.StreamHandler {
 
     public static String CHANNEL = "com.jzhu.counter/plugin";
-
     static EventChannel channel;
-
     private Activity activity;
 
     private FlutterPluginCounter(Activity activity) {

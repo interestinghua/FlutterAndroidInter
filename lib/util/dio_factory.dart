@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
 
 //总觉得怪怪的，但是打印出来确实是只有一个dio对象。。
-
 class DioFactory {
-  static Dio _dio;
 
+  static Dio _dio;
   static DioFactory _instance;
 
   static DioFactory getInstance() {

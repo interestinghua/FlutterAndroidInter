@@ -53,10 +53,6 @@ class _HideAndShowPageState extends State<HideAndShowPage> {
   }
 }
 
-
-
-
-
 class TestAWidget extends StatelessWidget {
   final bool visible;
 
@@ -99,9 +95,6 @@ class TestBWidget extends StatelessWidget {
   }
 }
 
-
-
-
 class TestCWidget extends StatelessWidget {
   final bool visible;
 
@@ -111,7 +104,7 @@ class TestCWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Offstage(
       offstage: visible,
-      child:new Container(
+      child: new Container(
         color: Colors.orange,
         height: 100.0,
         child: new Center(

@@ -10,24 +10,18 @@ class ChannelPage extends StatefulWidget {
 }
 
 class _ChannelPageState extends State<ChannelPage> {
-
   //获取到插件与原生的交互通道
   static const jumpPlugin = const MethodChannel('com.jzhu.jump/plugin');
-
+  //接受native的数据
   static const counterPlugin = const EventChannel('com.jzhu.counter/plugin');
-
   static const amapLocPlugin = const EventChannel('com.jzhu.amap.loc/plugin');
-
   static const perimissionsPlugin = const MethodChannel('com.jzhu.permisstions/plugin');
 
   StreamSubscription _counterSub;
-
   StreamSubscription _amapSub;
 
   var _count;
-
   var _city;
-
 
   @override
   void initState() {
@@ -42,11 +36,11 @@ class _ChannelPageState extends State<ChannelPage> {
     _endAMapPlugin();
   }
 
-
   _showDialog() {
     showDialog<Null>(
       context: context,
-      child: new AlertDialog(content: new Text('是否前去设置未开通权限'), actions: <Widget>[
+      child:
+          new AlertDialog(content: new Text('是否前去设置未开通权限'), actions: <Widget>[
         new FlatButton(
             onPressed: () {
               Navigator.pop(context);
@@ -57,55 +51,42 @@ class _ChannelPageState extends State<ChannelPage> {
     );
   }
 
-
-
-  Future<bool> _askPermission (List perimissions) async {
-
-    bool result = await perimissionsPlugin.invokeMethod('askPermissions', perimissions);
-
+  Future<bool> _askPermission(List permissions) async {
+    bool result = await perimissionsPlugin.invokeMethod('askPermissions', permissions);
     return result;
-    
   }
 
-  Future<Null> _goSetting () async {
-
+  Future<Null> _goSetting() async {
     await perimissionsPlugin.invokeMethod('openSetting');
-
     return null;
   }
 
-  
-  void _startAMapPlugin(){
-    
-    List perimissions  = new List();
-    
-    perimissions.add("ACCESS_COARSE_LOCATION");
-    perimissions.add("ACCESS_FINE_LOCATION");
-    perimissions.add("READ_PHONE_STATE");
-    perimissions.add("WRITE_EXTERNAL_STORAGE");
+  void _startAMapPlugin() {
+    List permissions = new List();
 
-    _askPermission(perimissions).then((granted){
-      if(granted){
-        if(_amapSub == null){
-          _amapSub =  amapLocPlugin.receiveBroadcastStream().listen(_onAMapEvent,onError: _onAMapError);
+    permissions.add("ACCESS_COARSE_LOCATION");
+    permissions.add("ACCESS_FINE_LOCATION");
+    permissions.add("READ_PHONE_STATE");
+    permissions.add("WRITE_EXTERNAL_STORAGE");
+
+    _askPermission(permissions).then((granted) {
+      if (granted) {
+        if (_amapSub == null) {
+          _amapSub = amapLocPlugin
+              .receiveBroadcastStream()
+              .listen(_onAMapEvent, onError: _onAMapError);
         }
-      }else{
+      } else {
         _showDialog();
       }
-
     });
-    
-
   }
 
-
-  void _endAMapPlugin(){
-    if(_amapSub != null){
+  void _endAMapPlugin() {
+    if (_amapSub != null) {
       _amapSub.cancel();
     }
   }
-
-
 
   void _onAMapEvent(Object event) {
     Map<String, Object> loc = Map.castFrom(event);
@@ -123,20 +104,20 @@ class _ChannelPageState extends State<ChannelPage> {
     });
   }
 
-
-
-  void _startCounterPlugin(){
-    if(_counterSub == null){
-      _counterSub =  counterPlugin.receiveBroadcastStream().listen(_onCounterEvent,onError: _onCounterError);
+  void _startCounterPlugin() {
+      //接受原生数据
+    if (_counterSub == null) {
+      _counterSub = counterPlugin
+          .receiveBroadcastStream()
+          .listen(_onCounterEvent, onError: _onCounterError);
     }
   }
 
-  void _endCounterPlugin(){
-    if(_counterSub != null){
+  void _endCounterPlugin() {
+    if (_counterSub != null) {
       _counterSub.cancel();
     }
   }
-
 
   void _onCounterEvent(Object event) {
     setState(() {
@@ -151,24 +132,20 @@ class _ChannelPageState extends State<ChannelPage> {
     });
   }
 
-
-
   Future<Null> _jumpToNative() async {
+
     String result = await jumpPlugin.invokeMethod('oneAct');
-
     print(result);
-  }
 
+  }
 
   Future<Null> _jumpToNativeWithValue() async {
 
-    Map<String, String> map = { "flutter": "这是一条来自flutter的参数" };
-
+    Map<String, String> map = {"flutter": "这是一条来自flutter的参数"};
     String result = await jumpPlugin.invokeMethod('twoAct', map);
-
     print(result);
-  }
 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,60 +156,53 @@ class _ChannelPageState extends State<ChannelPage> {
       ),
       body: new Center(
           child: new ListView(
-            children: <Widget>[
-              new Padding(
-                padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
-                child: new RaisedButton(
-                    textColor: Colors.black,
-                    child: new Text('跳转到原生界面'),
-                    onPressed: () {
-                      _jumpToNative();
-                    }),
-              ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, top: 10.0, right: 10.0),
-                child: new RaisedButton(
-                    textColor: Colors.black,
-                    child: new Text('跳转到原生界面(带参数)'),
-                    onPressed: () {
-                      _jumpToNativeWithValue();
-                    }),
-              ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, top: 10.0, right: 10.0),
-                child: new RaisedButton(
-                    textColor: Colors.black,
-                    child: new Text('点击获取当前定位'),
-                    onPressed: () {
-                      _startAMapPlugin();
-                    }),
-              ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, top: 10.0, right: 10.0),
-                child: new RaisedButton(
-                    textColor: Colors.black,
-                    child: new Text('停止接收获取当前定位'),
-                    onPressed: () {
-                      _endAMapPlugin();
-                    }),
-              ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, top: 10.0, right: 10.0),
-                child: new Text('这是一个从原生发射过来的计时器：$_count'),
-              ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                    left: 10.0, top: 10.0, right: 10.0),
-                child: new Text('当前定位：$_city'),
-              ),
-
-            ],
-          )
-      ),
+        children: <Widget>[
+          new Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+            child: new RaisedButton(
+                textColor: Colors.black,
+                child: new Text('跳转到原生界面'),
+                onPressed: () {
+                  _jumpToNative();
+                }),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+            child: new RaisedButton(
+                textColor: Colors.black,
+                child: new Text('跳转到原生界面(带参数)'),
+                onPressed: () {
+                  _jumpToNativeWithValue();
+                }),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+            child: new RaisedButton(
+                textColor: Colors.black,
+                child: new Text('点击获取当前定位'),
+                onPressed: () {
+                  _startAMapPlugin();
+                }),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+            child: new RaisedButton(
+                textColor: Colors.black,
+                child: new Text('停止接收获取当前定位'),
+                onPressed: () {
+                  _endAMapPlugin();
+                }),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+            child: new Text('这是一个从原生发射过来的计时器：$_count'),
+          ),
+          new Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
+            child: new Text('当前定位：$_city'),
+          ),
+        ],
+      )),
     );
   }
 }

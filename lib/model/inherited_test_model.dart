@@ -5,5 +5,4 @@ class InheritedTestModel {
 
   const InheritedTestModel(this.count);
 
-
 }

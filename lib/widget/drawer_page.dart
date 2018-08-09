@@ -12,8 +12,8 @@ class _DrawerWeigetState extends State<DrawerWeiget> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return new ListView(
-        padding: const EdgeInsets.only(),
-        children: <Widget>[
+      padding: const EdgeInsets.only(),
+      children: <Widget>[
         new UserAccountsDrawerHeader(
           accountName: new Text('XXXXX'),
           accountEmail: new Text('XXXXXXXXXXX'),
@@ -103,7 +103,7 @@ class DrawerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-       body:new DrawerWeiget(),
+      body: new DrawerWeiget(),
     );
   }
 }

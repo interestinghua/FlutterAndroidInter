@@ -7,6 +7,7 @@ import 'package:flutter_study/widget/drawer_page.dart';
 import 'package:flutter_study/widget/tab_android_page.dart';
 import 'package:flutter_study/widget/tab_girl_page.dart';
 import 'package:flutter_study/widget/tab_ios_page.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => new _HomePageState();
@@ -28,7 +29,6 @@ class _HomePageState extends State<HomePage>
   }
 
   var _body;
-
   var _curIndex = 0;
 
   _initPage() {
@@ -56,7 +56,6 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-
   Future<bool> _requestPop() {
     _showDialog();
     return new Future.value(false);
@@ -65,34 +64,37 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     _initPage();
-    return new WillPopScope(child: new Scaffold(
-      key: _key,
-      appBar: new AppBar(
-        title: new Text(StudyLocalizations.of(context)
-            .appTitle),
-        centerTitle: true,
-      ), //头部的标题AppBar
-      drawer: new Drawer(
-        child: new DrawerPage(),
-      ),
-      bottomNavigationBar: new BottomNavigationBar(
-        items: [
-          new BottomNavigationBarItem(
-              icon: new Icon(Icons.home), title: new Text("妹子")),
-          new BottomNavigationBarItem(
-              icon: new Icon(Icons.phone_android), title: new Text("Android")),
-          new BottomNavigationBarItem(
-              icon: new Icon(Icons.phone_iphone), title: new Text("iOS")),
-        ],
-        currentIndex: _curIndex,
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) {
-          setState(() {
-            _curIndex = index;
-          });
-        },
-      ),
-      body: _body,
-    ), onWillPop: _requestPop);
+    return new WillPopScope(
+        child: new Scaffold(
+          key: _key,
+          appBar: new AppBar(
+            title: new Text(StudyLocalizations.of(context).appTitle),
+            centerTitle: true,
+          ),
+          //头部的标题AppBar
+          drawer: new Drawer(
+            child: new DrawerPage(),
+          ),
+          bottomNavigationBar: new BottomNavigationBar(
+            items: [
+              new BottomNavigationBarItem(
+                  icon: new Icon(Icons.home), title: new Text("妹子")),
+              new BottomNavigationBarItem(
+                  icon: new Icon(Icons.phone_android),
+                  title: new Text("Android")),
+              new BottomNavigationBarItem(
+                  icon: new Icon(Icons.phone_iphone), title: new Text("iOS")),
+            ],
+            currentIndex: _curIndex,
+            type: BottomNavigationBarType.fixed,
+            onTap: (index) {
+              setState(() {
+                _curIndex = index;
+              });
+            },
+          ),
+          body: _body,
+        ),
+        onWillPop: _requestPop);
   }
 }

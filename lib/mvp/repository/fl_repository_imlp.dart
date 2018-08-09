@@ -12,7 +12,6 @@ import 'package:flutter_study/mvp/repository/fl_repository.dart';
 //@param pageNum
 //@return
 
-
 class FLRepositoryImlp implements FLRepository {
   @override
   Future<List<FLModel>> fetch(int pageNum,int pageSize) {

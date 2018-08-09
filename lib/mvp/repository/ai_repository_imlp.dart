@@ -27,7 +27,6 @@ Future<List<AIModel>> _getData(String type, int pageNum, int pageSize) async {
     if (response.statusCode == HttpStatus.OK) {
       var json = await response.transform(utf8.decoder).join();
       aiModels = jsonDecode(json)['results'];
-
     } else {
       //todo
     }
@@ -39,5 +38,3 @@ Future<List<AIModel>> _getData(String type, int pageNum, int pageSize) async {
     return new AIModel.fromJson(model);
   }).toList();
 }
-
-
