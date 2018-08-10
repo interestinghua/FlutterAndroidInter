@@ -62,15 +62,15 @@ class _ListLoadMoreState extends State<ListLoadMore> {
 				title: new Text("加载更多"),
 			),
 			body: new RefreshIndicator(
-				displacement: 20.0,
+				displacement: 10.0,
 				child: new ListView.builder(
 					scrollDirection: Axis.vertical,
-					itemCount: 30,
+//					itemCount: 30,
 					itemBuilder: (BuildContext context, int index) {
 
 						print("itemBuilder length = $length, index = $index");
 
-						if (index == length || isLoading) {
+						if (index == length) {
 							_loadMore();
 							return _buildProgressTextIndicator();
 						} else if (index > length) {
