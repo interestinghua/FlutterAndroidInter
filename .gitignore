@@ -8,3 +8,8 @@ build/
 
 .flutter-plugins
 android/app/src/main/java/io/
+.idea/
+.metadata
+
+
+ios/Frameworks/
