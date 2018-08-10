@@ -25,7 +25,6 @@ import 'package:flutter_study/widget/demo_route/route_page.dart';
 import 'package:flutter_study/widget/demo_route/route_page_with_value_one.dart';
 import 'package:flutter_study/widget/home_page.dart';
 import 'package:flutter_study/widget/demo_list_load_more/list_load_more.dart';
-//import 'package:flutter_study/widget/demo_list_load_more/list_load_more01.dart';
 
 void main() {
 //  debugPaintSizeEnabled = true;      //打开视觉调试开关
@@ -69,6 +68,5 @@ void main() {
 		'/ArchitecturePage': (BuildContext context) => new ArchitecturePage(),
 		'/ChannelPage': (BuildContext context) => new ChannelPage(),
 		'/ListLoadMore': (BuildContext context) => new ListLoadMore(),
-//		'/ListLoadMore01': (BuildContext context) => new ListLoadMore01(),
 	}, home: new HomePage()));
 }

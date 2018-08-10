@@ -2,6 +2,8 @@
   <code_scheme name="Project" version="173">
     <option name="AUTODETECT_INDENTS" value="false" />
     <option name="LINE_SEPARATOR" value="&#10;" />
+    <option name="RIGHT_MARGIN" value="200" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="true" />
     <DartCodeStyleSettings>
       <option name="DELEGATE_TO_DARTFMT" value="false" />
     </DartCodeStyleSettings>

@@ -1,8 +1,7 @@
-
 class InheritedTestModel {
 
-  final int count;
+	final int count;
 
-  const InheritedTestModel(this.count);
+	const InheritedTestModel(this.count);
 
 }

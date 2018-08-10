@@ -113,16 +113,6 @@ class _AdvancedPageState extends State<AdvancedPage> {
 								Navigator.pushNamed(context, "/ListLoadMore");
 							}),
 					),
-//					new Padding(
-//						padding: const EdgeInsets.only(
-//							left: 10.0, top: 10.0, right: 10.0),
-//						child: new RaisedButton(
-//							textColor: Colors.black,
-//							child: new Text('加载更多列表2'),
-//							onPressed: () {
-//								Navigator.pushNamed(context, "/ListLoadMore01");
-//							}),
-//					),
 				],
 			),
 		);

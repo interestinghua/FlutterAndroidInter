@@ -7,19 +7,19 @@ import 'package:flutter_study/mvp/presenter/fl_presenter.dart';
 import 'package:flutter_study/mvp/presenter/fl_presenter_impl.dart';
 import 'package:flutter_study/widget/demo_gesture/multi_touch_page.dart';
 
-class GirlsAppPage extends StatefulWidget {
-	GirlsAppPage({Key key}) : super(key: key);
+class ListDemoPage extends StatefulWidget {
+	ListDemoPage({Key key}) : super(key: key);
 
 	@override
-	_GirlsAppPageState createState() {
-		_GirlsAppPageState view = new _GirlsAppPageState();
+	_ListDemoPageState createState() {
+		_ListDemoPageState view = new _ListDemoPageState();
 		FLPresenter presenter = new FLPresenterImpl(view);
 		presenter.init();
 		return view;
 	}
 }
 
-class _GirlsAppPageState extends State<GirlsAppPage> implements FLView {
+class _ListDemoPageState extends State<ListDemoPage> implements FLView {
 
 	final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
 	new GlobalKey<RefreshIndicatorState>();
@@ -116,7 +116,6 @@ class _GirlsAppPageState extends State<GirlsAppPage> implements FLView {
 			}));
 	}
 
-
 	Widget buildCard(BuildContext context, int index) {
 		final String item = datas[index].url;
 		return new GestureDetector(
@@ -131,7 +130,6 @@ class _GirlsAppPageState extends State<GirlsAppPage> implements FLView {
 
 	@override
 	void onloadFLFail() {
-		// TODO: implement onloadFLFail
 	}
 
 	@override
@@ -148,17 +146,15 @@ class _GirlsAppPageState extends State<GirlsAppPage> implements FLView {
 
 	@override
 	setPresenter(FLPresenter presenter) {
-		// TODO: implement setPresenter
 		_flPresenter = presenter;
 	}
 }
 
-class TabGirlPage extends StatelessWidget {
+class ListLoadMorePage extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
-		// TODO: implement build
 		return new Scaffold(
-			body: new GirlsAppPage(),
+			body: new ListDemoPage(),
 		);
 	}
 }
