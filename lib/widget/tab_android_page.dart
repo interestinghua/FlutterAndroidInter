@@ -8,159 +8,157 @@ import 'package:flutter_study/mvp/presenter/ai_presenter_impl.dart';
 import 'package:flutter_study/util/routes_util.dart';
 
 
-
 class AndroidAppPage extends StatefulWidget {
-  AndroidAppPage({Key key}) : super(key: key);
+	AndroidAppPage({Key key}) : super(key: key);
 
-  @override
-  _AndroidAppPageState createState() {
-    _AndroidAppPageState view = new _AndroidAppPageState();
-    AIPresenter presenter = new AIPresenterImpl(view);
-    presenter.init();
-    return view;
-  }
+	@override
+	_AndroidAppPageState createState() {
+		_AndroidAppPageState view = new _AndroidAppPageState();
+		AIPresenter presenter = new AIPresenterImpl(view);
+		presenter.init();
+		return view;
+	}
 }
 
 class _AndroidAppPageState extends State<AndroidAppPage> implements AIView {
 
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-  new GlobalKey<RefreshIndicatorState>();
+	final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+	new GlobalKey<RefreshIndicatorState>();
 
-  ScrollController _scrollController;
+	ScrollController _scrollController;
 
-  List<AIModel> datas = [];
+	List<AIModel> datas = [];
 
-  AIPresenter _alPresenter;
+	AIPresenter _alPresenter;
 
-  int curPageNum = 1;
+	int curPageNum = 1;
 
-  bool isSlideUp = false;
+	bool isSlideUp = false;
 
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = new ScrollController()..addListener(_scrollListener);
-    _refreshData();
-    print("android");
-  }
-
-
-  @override
-  void dispose() {
-    _scrollController.removeListener(_scrollListener);
-    super.dispose();
-  }
+	@override
+	void initState() {
+		super.initState();
+		_scrollController = new ScrollController()
+			..addListener(_scrollListener);
+		_refreshData();
+		print("android");
+	}
 
 
-
-  void _scrollListener() {
-
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
-        _loadData();
-    }
-  }
+	@override
+	void dispose() {
+		_scrollController.removeListener(_scrollListener);
+		super.dispose();
+	}
 
 
-  Future<Null> _refreshData() {
-    isSlideUp = false;
+	void _scrollListener() {
+		if (_scrollController.position.pixels ==
+			_scrollController.position.maxScrollExtent) {
+			_loadData();
+		}
+	}
 
-    final Completer<Null> completer = new Completer<Null>();
 
-    curPageNum = 1;
+	Future<Null> _refreshData() {
+		isSlideUp = false;
 
-    _alPresenter.loadAIData("Android", curPageNum, 10);
+		final Completer<Null> completer = new Completer<Null>();
 
-    setState(() {});
+		curPageNum = 1;
 
-    completer.complete(null);
+		_alPresenter.loadAIData("Android", curPageNum, 10);
 
-    return completer.future;
-  }
+		setState(() {});
 
-  Future<Null>  _loadData() {
-    isSlideUp = true;
+		completer.complete(null);
 
-    final Completer<Null> completer = new Completer<Null>();
+		return completer.future;
+	}
 
-    curPageNum = curPageNum + 1;
+	Future<Null> _loadData() {
+		isSlideUp = true;
 
-    _alPresenter.loadAIData("Android", curPageNum, 10);
+		final Completer<Null> completer = new Completer<Null>();
 
-    setState(() {});
+		curPageNum = curPageNum + 1;
 
-    completer.complete(null);
+		_alPresenter.loadAIData("Android", curPageNum, 10);
 
-    return completer.future;
-  }
+		setState(() {});
 
-  @override
-  Widget build(BuildContext context) {
-    var content;
+		completer.complete(null);
 
-    if (datas.isEmpty) {
-      content = getProgressDialog();
-    } else {
-      content = new ListView.builder(
-        physics:AlwaysScrollableScrollPhysics(),
-        controller: _scrollController,
-        itemCount: datas.length,
-        itemBuilder: buildItem,
-      );
-    }
+		return completer.future;
+	}
 
-    var _refreshIndicator = new RefreshIndicator(
-      key: _refreshIndicatorKey,
-      onRefresh: _refreshData,
-      child: content,
-    );
+	@override
+	Widget build(BuildContext context) {
+		var content;
 
-    return _refreshIndicator;
-  }
+		if (datas.isEmpty) {
+			content = getProgressDialog();
+		} else {
+			content = new ListView.builder(
+				physics: AlwaysScrollableScrollPhysics(),
+				controller: _scrollController,
+				itemCount: datas.length,
+				itemBuilder: buildItem,
+			);
+		}
 
-  Widget buildItem(BuildContext context, int index) {
-    final AIModel item = datas[index];
-    return new ListTile(
-      onTap: (){
-        RouteUtil.route2Web(context, item.desc, item.url);
-      },
-      title: new Text(item.desc), //子item的标题
-      trailing: new Icon(
-        Icons.arrow_right,
-      ), //显示右侧的箭头，不显示则传null
-    );
-  }
+		var _refreshIndicator = new RefreshIndicator(
+			key: _refreshIndicatorKey,
+			onRefresh: _refreshData,
+			child: content,
+		);
 
-  @override
-  void onloadFLFail() {
-    // TODO: implement onloadFLFail
-  }
+		return _refreshIndicator;
+	}
 
-  @override
-  void onloadFLSuc(List<AIModel> list) {
-    if (!mounted) return; //异步处理，防止报错
-    setState(() {
-      if (isSlideUp) {
-        datas.addAll(list);
-      } else {
-        datas = list;
-      }
-    });
-  }
+	Widget buildItem(BuildContext context, int index) {
+		final AIModel item = datas[index];
+		return new ListTile(
+			onTap: () {
+				RouteUtil.route2Web(context, item.desc, item.url);
+			},
+			title: new Text(item.desc), //子item的标题
+			trailing: new Icon(
+				Icons.arrow_right,
+			), //显示右侧的箭头，不显示则传null
+		);
+	}
 
-  @override
-  setPresenter(AIPresenter presenter) {
-    // TODO: implement setPresenter
-    _alPresenter = presenter;
-  }
+	@override
+	void onloadFLFail() {
+		// TODO: implement onloadFLFail
+	}
+
+	@override
+	void onloadFLSuc(List<AIModel> list) {
+		if (!mounted) return; //异步处理，防止报错
+		setState(() {
+			if (isSlideUp) {
+				datas.addAll(list);
+			} else {
+				datas = list;
+			}
+		});
+	}
+
+	@override
+	setPresenter(AIPresenter presenter) {
+		// TODO: implement setPresenter
+		_alPresenter = presenter;
+	}
 }
 
 class TabAndroidPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold(
-      body: new AndroidAppPage(),
-    );
-  }
+	@override
+	Widget build(BuildContext context) {
+		// TODO: implement build
+		return new Scaffold(
+			body: new AndroidAppPage(),
+		);
+	}
 }

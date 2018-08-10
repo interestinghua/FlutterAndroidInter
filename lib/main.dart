@@ -25,47 +25,50 @@ import 'package:flutter_study/widget/demo_route/route_page.dart';
 import 'package:flutter_study/widget/demo_route/route_page_with_value_one.dart';
 import 'package:flutter_study/widget/home_page.dart';
 import 'package:flutter_study/widget/demo_list_load_more/list_load_more.dart';
+import 'package:flutter_study/widget/demo_list_load_more/list_load_more01.dart';
 
 void main() {
 //  debugPaintSizeEnabled = true;      //打开视觉调试开关
 
-  runApp(new MaterialApp(
+	runApp(new MaterialApp(
 //    theme: defaultTargetPlatform == TargetPlatform.iOS
 //        ? kiOSTheme
 //        : kAndroidTheme,
 //    theme: kAndroidTheme,
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        StudyLocalizationsDelegate.delegate,
-      ], supportedLocales: [
-    const Locale('zh', 'CH'),
-    const Locale('en', 'US'),
-  ], routes: <String, WidgetBuilder>{
-    '/RoutePage': (BuildContext context) => new RoutePage(),
-    '/RoutePageWithValue1': (BuildContext context) => new RoutePageWithValue1(),
-    '/DataPage': (BuildContext context) => new DataAppPage(),
-    '/GesturePage': (BuildContext context) => new GesturePage(),
-    '/DismissedPage': (BuildContext context) => new DismissedPage(),
-    '/LoadImgPage': (BuildContext context) => new LoadImgPage(),
-    '/LifecyclePage': (BuildContext context) => new LifecyclePage(),
-    '/NetworkPage': (BuildContext context) => new NetworkPage(),
-    '/AdvancedPage': (BuildContext context) => new AdvancedPage(),
-    '/InheritedWidgetTestPage': (BuildContext context) =>
-        new InheritedWidgetTestContainer(),
-    '/GlobalKeyFromPage': (BuildContext context) => new GlobalKeyFromPage(),
-    '/NotificationPage': (BuildContext context) => new NotificationPage(),
-    '/HideAndShowPage': (BuildContext context) => new HideAndShowPage(),
-    '/StreamPage': (BuildContext context) => new StreamPage(),
-    '/DragPage': (BuildContext context) => new DragPage(),
-    '/ContainerPage': (BuildContext context) => new ContainerPage(),
-    '/BaseWidgetPage': (BuildContext context) => new BaseWidgetPage(),
-    '/AnimationPage': (BuildContext context) => new AnimationPage(),
-    '/SearchPage': (BuildContext context) => new SearchPage(),
-    '/HomePage': (BuildContext context) => new HomePage(),
-    '/CountReduxPage': (BuildContext context) => new CountReduxPage(),
-    '/ArchitecturePage': (BuildContext context) => new ArchitecturePage(),
-    '/ChannelPage': (BuildContext context) => new ChannelPage(),
-    '/ListLoadMore': (BuildContext context) => new ListLoadMore(),
-  }, home: new HomePage()));
+		localizationsDelegates: [
+			GlobalMaterialLocalizations.delegate,
+			GlobalWidgetsLocalizations.delegate,
+			StudyLocalizationsDelegate.delegate,
+		], supportedLocales: [
+		const Locale('zh', 'CH'),
+		const Locale('en', 'US'),
+	], routes: <String, WidgetBuilder>{
+		'/RoutePage': (BuildContext context) => new RoutePage(),
+		'/RoutePageWithValue1': (
+			BuildContext context) => new RoutePageWithValue1(),
+		'/DataPage': (BuildContext context) => new DataAppPage(),
+		'/GesturePage': (BuildContext context) => new GesturePage(),
+		'/DismissedPage': (BuildContext context) => new DismissedPage(),
+		'/LoadImgPage': (BuildContext context) => new LoadImgPage(),
+		'/LifecyclePage': (BuildContext context) => new LifecyclePage(),
+		'/NetworkPage': (BuildContext context) => new NetworkPage(),
+		'/AdvancedPage': (BuildContext context) => new AdvancedPage(),
+		'/InheritedWidgetTestPage': (BuildContext context) =>
+		new InheritedWidgetTestContainer(),
+		'/GlobalKeyFromPage': (BuildContext context) => new GlobalKeyFromPage(),
+		'/NotificationPage': (BuildContext context) => new NotificationPage(),
+		'/HideAndShowPage': (BuildContext context) => new HideAndShowPage(),
+		'/StreamPage': (BuildContext context) => new StreamPage(),
+		'/DragPage': (BuildContext context) => new DragPage(),
+		'/ContainerPage': (BuildContext context) => new ContainerPage(),
+		'/BaseWidgetPage': (BuildContext context) => new BaseWidgetPage(),
+		'/AnimationPage': (BuildContext context) => new AnimationPage(),
+		'/SearchPage': (BuildContext context) => new SearchPage(),
+		'/HomePage': (BuildContext context) => new HomePage(),
+		'/CountReduxPage': (BuildContext context) => new CountReduxPage(),
+		'/ArchitecturePage': (BuildContext context) => new ArchitecturePage(),
+		'/ChannelPage': (BuildContext context) => new ChannelPage(),
+		'/ListLoadMore': (BuildContext context) => new ListLoadMore(),
+		'/ListLoadMore01': (BuildContext context) => new ListLoadMore01(),
+	}, home: new HomePage()));
 }
