@@ -18,6 +18,7 @@ class _ListLoadMoreState extends State<ListLoadMore> {
 	List<String> issues;
 	bool isLoading = false;
 	Logger log = new Logger(r"ListLoadMore");
+	ScrollController _scrollController = new ScrollController();
 
 	Widget _buildProgressTextIndicator() {
 		return new Row(
@@ -55,6 +56,21 @@ class _ListLoadMoreState extends State<ListLoadMore> {
 	}
 
 	@override
+	void initState() {
+		super.initState();
+
+		_scrollController.addListener(() {
+			if (_scrollController.position.pixels ==
+				_scrollController.position.maxScrollExtent) {
+				if (!isLoading) {
+					print("_scrollController loadMore");
+					_loadMore();
+				}
+			}
+		});
+	}
+
+	@override
 	Widget build(BuildContext context) {
 		var length = issues?.length ?? 0;
 		return new Scaffold(
@@ -67,7 +83,6 @@ class _ListLoadMoreState extends State<ListLoadMore> {
 					scrollDirection: Axis.vertical,
 //					itemCount: 30,
 					itemBuilder: (BuildContext context, int index) {
-
 						print("itemBuilder length = $length, index = $index");
 
 						if (index == length) {
@@ -78,6 +93,7 @@ class _ListLoadMoreState extends State<ListLoadMore> {
 						}
 
 						var title = issues[index];
+						var itemIndex = index + 1;
 
 						return new Container(
 							decoration: new BoxDecoration(
@@ -86,17 +102,23 @@ class _ListLoadMoreState extends State<ListLoadMore> {
 										color: Colors.grey.shade300))),
 							child: new ListTile(
 								key: new ValueKey<String>(title),
-								title: new Text("($index) $title")),
+								title: new Text("($itemIndex) $title")),
 						);
 					},
+					controller: _scrollController,
 				),
 				onRefresh: _refresh,
 			),
 		);
 	}
 
-	Future<void> _refresh() async {
+	@override
+	void dispose() {
+		super.dispose();
+		_scrollController.dispose();
+	}
 
+	Future<void> _refresh() async {
 		print("========_refresh========");
 		page = 1;
 
@@ -132,7 +154,6 @@ class _ListLoadMoreState extends State<ListLoadMore> {
 	}
 
 	Future<void> _loadMore() async {
-
 		print("========_loadMore========");
 		if (isLoading) {
 			return null;
