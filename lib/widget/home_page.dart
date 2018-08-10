@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage>
 	_initPage() {
 		_body = new IndexedStack(
 			children: <Widget>[
-				new TabGirlPage(),
+//				new TabGirlPage(),
 				new TabAndroidPage(),
 				new TabiOSPage(),
 			],
@@ -80,8 +80,8 @@ class _HomePageState extends State<HomePage>
 				),
 				bottomNavigationBar: new BottomNavigationBar(
 					items: [
-						new BottomNavigationBarItem(
-							icon: new Icon(Icons.home), title: new Text("妹子")),
+//						new BottomNavigationBarItem(
+//							icon: new Icon(Icons.home), title: new Text("妹子")),
 						new BottomNavigationBarItem(
 							icon: new Icon(Icons.phone_android),
 							title: new Text("Android")),

@@ -15,7 +15,7 @@ class ListLoadMore01 extends StatefulWidget {
 class _ListLoadMore01State extends State<ListLoadMore01> {
 
 	int page = 1;
-	List<String> issues = new List();
+	List<String> issues;
 	bool loading = false;
 	ScrollController _scrollController = new ScrollController();
 
@@ -47,8 +47,6 @@ class _ListLoadMore01State extends State<ListLoadMore01> {
 	void initState() {
 		super.initState();
 
-		_refresh();
-
 		_scrollController.addListener(() {
 			if (_scrollController.position.pixels ==
 				_scrollController.position.maxScrollExtent) {
@@ -60,18 +58,25 @@ class _ListLoadMore01State extends State<ListLoadMore01> {
 
 	@override
 	Widget build(BuildContext context) {
+
+		_refresh();
+		var length = issues?.length ?? 0;
+
 		return new Scaffold(
 			appBar: new AppBar(
 				title: new Text("加载更多"),
 			),
 			body: new RefreshIndicator(
+				displacement: 10.0,
 				child: new ListView.builder(
-					itemCount: issues.length,
+					itemCount: length,
 					itemBuilder: (BuildContext context, int index) {
-						var title = issues[index];
-						if (index == issues.length) {
+
+						if (index == length) {
 							return _buildLoadText();
 						} else {
+							var title = issues[index];
+
 							return new Container(
 								decoration: new BoxDecoration(
 									border: new Border(
@@ -98,60 +103,64 @@ class _ListLoadMore01State extends State<ListLoadMore01> {
 
 	Future<void> _refresh() async {
 		page = 1;
-		if (!loading) {
-			setState(() {
-				loading = true;
-			});
 
-			try {
-				var url =
-					"https://api.github.com/repositories/31792824/issues?page=$page";
-				var resp = await http.get(url);
-				var data = json.decode(resp.body);
-				setState(() {
-					if (data is List) {
-						if (issues == null) {
-							issues = <String>[];
-						}
-						data.forEach((dynamic e) {
-							if (e is Map) {
-								issues.add(e['title'] as String);
-							}
-						});
+		if (loading) {
+			return null;
+		}
+		loading = true;
+		try {
+			var url =
+				"https://api.github.com/repositories/31792824/issues?page=$page";
+			var resp = await http.get(url);
+			var data = json.decode(resp.body);
+			print("refresh url $url");
+			setState(() {
+				if (data is List) {
+					if (issues == null) {
+						issues = <String>[];
+					} else {
+						issues.clear();
 					}
-					loading = false;
-				});
-			} finally {}
-		}else{
-			return _buildLoadText();
+
+					data.forEach((dynamic e) {
+						if (e is Map) {
+							issues.add(e['title'] as String);
+						}
+					});
+				}
+				loading = false;
+				return null;
+			});
+		} finally {
+			loading = false;
 		}
 	}
 
 	Future<void> _loadMore() async {
-		if (!loading) {
+		if (loading) {
+			return null;
+		}
+		loading = true;
+		try {
+			var url = "https://api.github.com/repositories/31792824/issues?page=$page";
+			var resp = await http.get(url);
+			var data = json.decode(resp.body);
+			print("loadmore url $url");
 			setState(() {
-				loading = true;
-			});
-
-			try {
-				var url = "https://api.github.com/repositories/31792824/issues?page=$page";
-				var resp = await http.get(url);
-				var data = json.decode(resp.body);
-				setState(() {
-					page += 1;
-					if (data is List) {
-						if (issues == null) {
-							issues = <String>[];
-						}
-						data.forEach((dynamic e) {
-							if (e is Map) {
-								issues.add(e['title'] as String);
-							}
-						});
+				page += 1;
+				if (data is List) {
+					if (issues == null) {
+						issues = <String>[];
 					}
-					loading = false;
-				});
-			} finally {}
+					data.forEach((dynamic e) {
+						if (e is Map) {
+							issues.add(e['title'] as String);
+						}
+					});
+				}
+			});
+		} finally {
+			loading = false;
 		}
 	}
 }
