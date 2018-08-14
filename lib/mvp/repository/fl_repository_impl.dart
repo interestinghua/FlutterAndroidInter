@@ -30,7 +30,7 @@ Future<List<FLModel>> _getData(int pageNum, int pageSize) async {
 	try {
 		var request = await httpClient.getUrl(Uri.parse(url));
 		var response = await request.close();
-		if (response.statusCode == HttpStatus.OK) {
+		if (response.statusCode == HttpStatus.ok) {
 			var json = await response.transform(utf8.decoder).join();
 			flModels = jsonDecode(json)['results'];
 		} else {

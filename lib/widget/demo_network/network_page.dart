@@ -30,7 +30,7 @@ class _NetworkAppPageState extends State<NetworkAppPage> {
     try {
       var request = await httpClient.getUrl(Uri.parse(url));
       var response = await request.close();
-      if (response.statusCode == HttpStatus.OK) {
+      if (response.statusCode == HttpStatus.ok) {
         _result = await response.transform(utf8.decoder).join();
         _decodeJson(_result, false);
       } else {
@@ -54,8 +54,8 @@ class _NetworkAppPageState extends State<NetworkAppPage> {
   _loadDataByHttp() async {
     try {
       http.Response response = await client.get(url);
-      if (response.statusCode == HttpStatus.OK) {
-        if (response.statusCode == HttpStatus.OK) {
+      if (response.statusCode == HttpStatus.ok) {
+        if (response.statusCode == HttpStatus.ok) {
           _result = response.body.toString();
           _decodeJson(_result, false);
         } else {
@@ -77,7 +77,7 @@ class _NetworkAppPageState extends State<NetworkAppPage> {
   _loadDataByDio() async {
     try {
       Response response = await dio.get(dio_url);
-      if (response.statusCode == HttpStatus.OK) {
+      if (response.statusCode == HttpStatus.ok) {
         _result = response.data.toString();
         _decodeTest(response.data);
       } else {

@@ -37,7 +37,7 @@ class SearchApi {
 
 		List<SearchModel> list;
 
-		if (response.statusCode == HttpStatus.OK) {
+		if (response.statusCode == HttpStatus.ok) {
 			bool error = response.data['error'];
 			if (!error) {
 				List searchModels = response.data['results'];
